@@ -33,7 +33,7 @@
     <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
 
     <!-- configure the versions you want to use here -->
-    <fuse.version>6.2.1.redhat-083</fuse.version>
+    <fuse.version>6.2.1.redhat-117</fuse.version>
     <fabric8.version>2.2.145</fabric8.version>
     <karaf.plugin.version>4.0.2.redhat-621067</karaf.plugin.version>
 
