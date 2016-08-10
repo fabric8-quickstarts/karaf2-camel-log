@@ -40,7 +40,7 @@
     <docker.from>fabric8/s2i-karaf:1.2</docker.from>
 
     <!-- maven plugin versions -->
-    <fabric8.maven.plugin.version>3.1.10</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.1.11</fabric8.maven.plugin.version>
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
     <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
