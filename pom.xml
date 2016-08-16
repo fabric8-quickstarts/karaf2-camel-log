@@ -36,9 +36,6 @@
     <fabric8.version>2.2.150</fabric8.version>
     <karaf.plugin.version>4.0.2.redhat-621079</karaf.plugin.version>
 
-    <!--<docker.from>jboss-fuse-6/fis-karaf-openshift:1.0</docker.from>-->
-    <docker.from>fabric8/s2i-karaf:1.2</docker.from>
-
     <!-- maven plugin versions -->
     <fabric8.maven.plugin.version>3.1.14</fabric8.maven.plugin.version>
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -187,35 +184,6 @@
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-maven-plugin</artifactId>
         <version>${fabric8.maven.plugin.version}</version>
-        <configuration>
-          <images>
-            <image>
-              <name>${project.artifactId}:${project.version}</name>
-              <alias>${project.artifactId}</alias>
-              <build>
-                <from>${docker.from}</from>
-                <assembly>
-                  <basedir>/deployments</basedir>
-                  <user>jboss:jboss:jboss</user>
-                  <inline xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-                    <id>${project.artifactId}</id>
-                    <files>
-                      <!-- copy karaf archive -->
-                      <file>
-                        <source>${project.build.directory}/${project.artifactId}-${project.version}.zip</source>
-                        <outputDirectory>/</outputDirectory>
-                        <fileMode>0644</fileMode>
-                      </file>
-                    </files>
-                  </inline>
-                </assembly>
-                <cmd>
-                  <shell>/deployments/deploy-and-run.sh</shell>
-                </cmd>
-              </build>
-            </image>
-          </images>
-        </configuration>
         <executions>
           <execution>
             <id>generate-resource</id>
