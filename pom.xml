@@ -16,9 +16,7 @@
      permissions and limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -34,7 +32,7 @@
 
       <!-- configure the versions you want to use here -->
     <fuse.version>6.2.1.redhat-117</fuse.version>
-    <fabric8.version>2.2.152</fabric8.version>
+    <fabric8.version>2.2.150</fabric8.version>
     <fabric8.kubernetes.version>1.4.4</fabric8.kubernetes.version>
     <karaf.plugin.version>4.0.2.redhat-621079</karaf.plugin.version>
 
@@ -44,7 +42,7 @@
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-    <fabric8.maven.plugin.version>3.1.15</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.1.14</fabric8.maven.plugin.version>
   </properties>
 
   <dependencyManagement>
