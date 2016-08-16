@@ -16,7 +16,9 @@
      permissions and limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -29,18 +31,20 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
 
-    <!-- configure the versions you want to use here -->
+      <!-- configure the versions you want to use here -->
     <fuse.version>6.2.1.redhat-117</fuse.version>
-    <fabric8.version>2.2.150</fabric8.version>
+    <fabric8.version>2.2.152</fabric8.version>
+    <fabric8.kubernetes.version>1.4.4</fabric8.kubernetes.version>
     <karaf.plugin.version>4.0.2.redhat-621079</karaf.plugin.version>
 
     <!-- maven plugin versions -->
-    <fabric8.maven.plugin.version>3.1.14</fabric8.maven.plugin.version>
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-    <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+    <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+    <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+    <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+    <fabric8.maven.plugin.version>3.1.15</fabric8.maven.plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -90,6 +94,20 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <groupId>io.fabric8.kubernetes</groupId>
+      <artifactId>kubernetes-karaf</artifactId>
+      <version>${fabric8.kubernetes.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>io.fabric8</groupId>
+      <artifactId>fabric8-karaf-features</artifactId>
+      <version>${fabric8.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+    </dependency>
   </dependencies>
 
   <build>
@@ -104,17 +122,19 @@
     <plugins>
       <!-- Compiler plugin enforces Java 1.8 compatibility and activates annotation processors -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>${version.maven-bundle-plugin}</version>
+        <version>${maven-bundle-plugin.version}</version>
         <extensions>true</extensions>
       </plugin>
 
@@ -123,7 +143,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-install-plugin</artifactId>
-        <version>2.5.2</version>
+        <version>${maven-install-plugin.version}</version>
         <executions>
           <execution>
             <id>default-install</id>
@@ -163,15 +183,16 @@
           <karafVersion>v24</karafVersion>
           <useReferenceUrls>true</useReferenceUrls>
           <archiveTarGz>false</archiveTarGz>
-          <!-- do not include build output directory -->
           <includeBuildOutputDirectory>false</includeBuildOutputDirectory>
-          <!-- no startupFeatures -->
           <startupFeatures>
             <feature>karaf-framework</feature>
             <feature>shell</feature>
             <feature>jaas</feature>
             <feature>aries-blueprint</feature>
             <feature>camel-blueprint</feature>
+            <feature>kubernetes-client</feature>
+            <feature>openshift-client</feature>
+            <feature>fabric8-karaf-blueprint</feature>
           </startupFeatures>
           <startupBundles>
             <bundle>mvn:${project.groupId}/${project.artifactId}/${project.version}</bundle>
@@ -201,6 +222,7 @@
           </execution>
         </executions>
       </plugin>
+      
     </plugins>
   </build>
 
