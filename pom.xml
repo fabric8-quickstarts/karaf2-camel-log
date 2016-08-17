@@ -232,6 +232,15 @@
       </activation>
       <repositories>
         <repository>
+          <id>central</id>
+          <name>Maven Repository Switchboard</name>
+          <layout>default</layout>
+          <url>http://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+        <repository>
           <id>fusesource.m2</id>
           <name>FuseSource Community Release Repository</name>
           <url>https://repo.fusesource.com/nexus/content/groups/public</url>
@@ -269,6 +278,18 @@
         </repository>
       </repositories>
       <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <name>Maven Plugin Repository</name>
+          <url>http://repo1.maven.org/maven2</url>
+          <layout>default</layout>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
         <pluginRepository>
           <id>fusesource.m2</id>
           <name>FuseSource Community Release Repository</name>
