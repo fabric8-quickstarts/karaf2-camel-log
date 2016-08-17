@@ -32,8 +32,8 @@
 
       <!-- configure the versions you want to use here -->
     <fuse.version>6.2.1.redhat-117</fuse.version>
-    <fabric8.version>2.2.150</fabric8.version>
-    <fabric8.kubernetes.version>1.4.4</fabric8.kubernetes.version>
+    <fabric8.version>2.2.152</fabric8.version>
+    <kubernetes-client.version>1.4.4</kubernetes-client.version>
     <karaf.plugin.version>4.0.2.redhat-621079</karaf.plugin.version>
 
     <!-- maven plugin versions -->
@@ -95,7 +95,7 @@
     <dependency>
       <groupId>io.fabric8.kubernetes</groupId>
       <artifactId>kubernetes-karaf</artifactId>
-      <version>${fabric8.kubernetes.version}</version>
+      <version>${kubernetes-client.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
     </dependency>
@@ -220,7 +220,7 @@
           </execution>
         </executions>
       </plugin>
-      
+
     </plugins>
   </build>
 
