@@ -33,7 +33,6 @@
       <!-- configure the versions you want to use here -->
     <fuse.version>6.2.1.redhat-117</fuse.version>
     <fabric8.version>2.2.161</fabric8.version>
-    <kubernetes-client.version>1.3.72</kubernetes-client.version>
     <karaf.plugin.version>4.0.6</karaf.plugin.version>
 
     <!-- maven plugin versions -->
@@ -91,13 +90,6 @@
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>io.fabric8.kubernetes</groupId>
-      <artifactId>kubernetes-karaf</artifactId>
-      <version>${kubernetes-client.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>io.fabric8</groupId>
@@ -188,8 +180,6 @@
             <feature>jaas</feature>
             <feature>aries-blueprint</feature>
             <feature>camel-blueprint</feature>
-            <feature>kubernetes-client</feature>
-            <feature>openshift-client</feature>
             <feature>fabric8-karaf-blueprint</feature>
             <feature>fabric8-karaf-checks</feature>
           </startupFeatures>
