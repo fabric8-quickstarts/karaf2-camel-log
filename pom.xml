@@ -41,7 +41,7 @@
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-    <fabric8.maven.plugin.version>3.1.57</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.1.58</fabric8.maven.plugin.version>
   </properties>
 
   <dependencyManagement>
