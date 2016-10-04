@@ -1,0 +1,11 @@
+metadata:
+  namespace: ${quickstart.namespace}
+roleRef:
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: ${quickstart.serviceaccount}
+  namespace: ${quickstart.namespace}
+userNames:
+- system:serviceaccount:${quickstart.namespace}:${quickstart.serviceaccount}
+
