@@ -37,7 +37,7 @@
   <ext:property-placeholder evaluator="fabric8" placeholder-prefix="$[" placeholder-suffix="]"/>
  
   <bean id="myBean" class="io.fabric8.quickstarts.camel.log.MyBean">
-    <argument value="$[k8s:map:camel-log/message]"/>
+    <argument value="$[k8s:map:jboss-fuse-camel-log/message]"/>
   </bean>
 
   <!--
