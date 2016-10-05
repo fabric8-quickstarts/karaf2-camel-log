@@ -10,7 +10,7 @@ It also shows how Karaf assembly files can be overriden using resources from `sr
 
 The example can be built with
 
-    mvn clean install
+    mvn clean install -Ddocker.skip
 
 
 ### Running the example in fabric8
@@ -19,7 +19,7 @@ It is assumed that OpenShift platform is already running. If not you can find de
 
 The example can be built and deployed using a single goal:
 
-    mvn -Pf8-deploy
+    mvn fabric8:deploy -Dfabric8.mode=openshift
 
 When the example runs in OpenShift, you can use the OpenShift client tool to inspect the status
 
