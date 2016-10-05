@@ -3,21 +3,16 @@
 This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.
 It also shows how Karaf assembly files can be overriden using resources from `src/main/resources/assembly/`. The included sample log file `etc/org.ops4j.pax.logging.cfg` sets the log level to DEBUG. 
 
-Before running the example you should create a ConfigMap named camel-log in Kubernetes/OpenShift with at least a single key named message. Please note that on OpenShift the Service Account under which your pod will run needs view role: 
+Before running the example you should create a ConfigMap named camel-log in Kubernetes with at least a single key named message.
 
 * Kubernetes:
     ```
-    # Create the ConfigMap
     kubectl create configmap camel-log --from-literal=message=Hello
     ```
 
 * OpenShift:
     ```
-    # Create the ConfigMap
     oc create configmap camel-log --from-literal=message=Hello
-
-    # Add view role to ServiceAccount 'default'
-    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
     ```
 
 ### Building
