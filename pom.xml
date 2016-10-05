@@ -33,7 +33,7 @@
       <!-- configure the versions you want to use here -->
     <fuse.version>6.2.1.redhat-117</fuse.version>
     <fabric8.version>2.2.168</fabric8.version>
-    <karaf.plugin.version>4.0.6</karaf.plugin.version>
+    <karaf.plugin.version>4.0.7</karaf.plugin.version>
 
     <!-- maven plugin versions -->
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -42,10 +42,6 @@
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     <fabric8.maven.plugin.version>3.1.63</fabric8.maven.plugin.version>
-
-    <!-- configure service account role binding -->
-    <quickstart.namespace>default</quickstart.namespace>
-    <quickstart.serviceaccount>default</quickstart.serviceaccount>
   </properties>
 
   <dependencyManagement>
