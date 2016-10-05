@@ -42,10 +42,6 @@
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     <fabric8.maven.plugin.version>3.1.63</fabric8.maven.plugin.version>
-
-    <!-- configure service account role binding -->
-    <quickstart.namespace>default</quickstart.namespace>
-    <quickstart.serviceaccount>default</quickstart.serviceaccount>
   </properties>
 
   <dependencyManagement>

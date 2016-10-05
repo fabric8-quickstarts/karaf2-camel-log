@@ -1,25 +1,39 @@
 # Karaf Camel Log QuickStart
 
 This quickstart shows a simple Apache Camel application that logs a message to the server log every 5th second.
-It also shows how Karaf assembly files can be overridden using resources from `src/main/resources/assembly/`. The included sample log file `etc/org.ops4j.pax.logging.cfg` sets the log level to DEBUG. 
+It also shows how Karaf assembly files can be overriden using resources from `src/main/resources/assembly/`. The included sample log file `etc/org.ops4j.pax.logging.cfg` sets the log level to DEBUG. 
 
-This quickstart will automatically create a ConfigMap named karaf-camel-log and will set up service account view policy.
-By default the view policy will be applied to a service account named `default` in namespace `default`, you can customize them via quickstart.namespace and quickstart.serviceaccount properties.
+Before running the example you should create a ConfigMap named camel-log in Kubernetes/OpenShift with at least a single key named message. Please note that on OpenShift the Service Account under which your pod will run needs view role: 
+
+* Kubernetes:
+    ```
+    # Create the ConfigMap
+    kubectl create configmap camel-log --from-literal=message=Hello
+    ```
+
+* OpenShift:
+    ```
+    # Create the ConfigMap
+    oc create configmap camel-log --from-literal=message=Hello
+
+    # Add view role to ServiceAccount 'default'
+    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
+    ```
 
 ### Building
 
 The example can be built with
 
-    mvn clean install -Ddocker.skip
+    mvn clean install
 
 
 ### Running the example in fabric8
 
 It is assumed that OpenShift platform is already running. If not you can find details how to [Install OpenShift at your site](https://docs.openshift.com/enterprise/3.1/install_config/install/index.html).
 
-The example can be built and deployed using:
+The example can be built and deployed using a single goal:
 
-    mvn install fabric8:deploy
+    mvn -Pf8-deploy
 
 When the example runs in OpenShift, you can use the OpenShift client tool to inspect the status
 
