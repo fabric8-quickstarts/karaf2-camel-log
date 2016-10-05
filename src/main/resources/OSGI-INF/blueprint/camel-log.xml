@@ -23,46 +23,34 @@
    The root element for any OSGi Blueprint file is 'blueprint' - you also see the namespace definitions for both the Blueprint
    and the Camel namespaces.
 -->
-<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.2.0"
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-      http://www.osgi.org/xmlns/blueprint/v1.0.0 
-      https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
-      http://camel.apache.org/schema/blueprint 
-      http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
-      http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.3.0
-      http://aries.apache.org/schemas/blueprint-ext/blueprint-ext-1.3.xsd">
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-  <ext:property-placeholder evaluator="fabric8" placeholder-prefix="$[" placeholder-suffix="]"/>
- 
-  <bean id="myBean" class="io.fabric8.quickstarts.camel.log.MyBean">
-    <argument value="$[k8s:map:camel-log/message]"/>
-  </bean>
+    <!--
+      The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'.
 
-  <!--
-    The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'.
+      While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
+      to set those for runtime management purposes (logging, JMX MBeans, ...)
+    -->
+    <camelContext id="log-example-context" xmlns="http://camel.apache.org/schema/blueprint" >
 
-    While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
-    to set those for runtime management purposes (logging, JMX MBeans, ...)
-  -->
-  <camelContext id="log-example-context" xmlns="http://camel.apache.org/schema/blueprint" >
+        <!--
+          A very simple Camel route, that uses a timer to trigger a message every 5 second.
 
-      <!--
-        A very simple Camel route, that uses a timer to trigger a message every 5 second.
+          The <setBody> sets a body into the Camel Message.
 
-        The <setBody> sets a body into the Camel Message.
-
-        The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
-        route is doing.
-      -->
-      <route id="log-route">
-        <from uri="timer:foo?period=1s"/>
-          <setBody>
-              <method ref="myBean" method="message"/>
-          </setBody>
-          <log message=">>> ${body} : ${id}"/>
-      </route>
-  </camelContext>
+          The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
+          route is doing.
+        -->
+        <route id="log-route">
+          <from uri="timer:foo?period=5s"/>
+            <setBody>
+                <simple>Hello from Camel!</simple>
+            </setBody>
+            <log message=">>> ${body} : ${id}"/>
+        </route>
+    </camelContext>
 
 </blueprint>
