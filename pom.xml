@@ -31,7 +31,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <!-- configure the versions you want to use here -->
-    <fuse.version>6.2.1.redhat-117</fuse.version>
+    <fuse.version>6.3.0.redhat-187</fuse.version>
     <fabric8.version>2.2.168</fabric8.version>
     <karaf.plugin.version>4.0.7</karaf.plugin.version>
 
