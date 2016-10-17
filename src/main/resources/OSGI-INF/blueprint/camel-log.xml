@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
      Copyright 2005-2016 Red Hat, Inc.
@@ -23,19 +23,15 @@
    The root element for any OSGi Blueprint file is 'blueprint' - you also see the namespace definitions for both the Blueprint
    and the Camel namespaces.
 -->
-<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-             http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
-             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
-
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="              http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <!--
       The namespace for the camelContext element in Blueprint is 'http://camel.apache.org/schema/blueprint'.
 
       While it is not required to assign id's to the <camelContext/> and <route/> elements, it is a good idea
       to set those for runtime management purposes (logging, JMX MBeans, ...)
     -->
-    <camelContext id="log-example-context" xmlns="http://camel.apache.org/schema/blueprint" >
-
+    <camelContext id="log-example-context" xmlns="http://camel.apache.org/schema/blueprint">
         <!--
           A very simple Camel route, that uses a timer to trigger a message every 5 second.
 
@@ -45,12 +41,11 @@
           route is doing.
         -->
         <route id="log-route">
-          <from uri="timer:foo?period=5s"/>
-            <setBody>
+            <from id="timer" uri="timer:foo?period=5s"/>
+            <setBody id="_setBody1">
                 <simple>Hello from Camel!</simple>
             </setBody>
-            <log message=">>> ${body} : ${id}"/>
+            <log id="log" message=">>> ${body} : ${id}"/>
         </route>
     </camelContext>
-
 </blueprint>
