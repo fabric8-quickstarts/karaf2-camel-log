@@ -32,7 +32,7 @@
 
       <!-- configure the versions you want to use here -->
     <fuse.version>6.3.0.redhat-187</fuse.version>
-    <fabric8.version>2.2.168</fabric8.version>
+    <fabric8.version>2.2.169</fabric8.version>
     <karaf.plugin.version>4.0.7</karaf.plugin.version>
 
     <!-- maven plugin versions -->
@@ -49,15 +49,8 @@
       <!-- fabric8 bom must be before fabric8 bom -->
       <dependency>
         <groupId>io.fabric8</groupId>
-        <artifactId>fabric8-project-bom-with-platform-deps</artifactId>
+        <artifactId>fabric8-project-bom-fuse-karaf</artifactId>
         <version>${fabric8.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.fuse.bom</groupId>
-        <artifactId>jboss-fuse-parent</artifactId>
-        <version>${fuse.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -94,7 +87,6 @@
     <dependency>
       <groupId>io.fabric8</groupId>
       <artifactId>fabric8-karaf-features</artifactId>
-      <version>${fabric8.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
     </dependency>
