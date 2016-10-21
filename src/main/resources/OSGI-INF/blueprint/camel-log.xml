@@ -41,11 +41,11 @@
           route is doing.
         -->
         <route id="log-route">
-            <from id="timer" uri="timer:foo?period=5s"/>
-            <setBody id="_setBody1">
+            <from id="route-timer" uri="timer:foo?period=5s"/>
+            <setBody id="route-set-body">
                 <simple>Hello from Camel!</simple>
             </setBody>
-            <log id="log" message=">>> ${body} : ${id}"/>
+            <log id="route-log" message=">>> ${body} : ${id}"/>
         </route>
     </camelContext>
 </blueprint>
