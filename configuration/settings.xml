@@ -72,6 +72,30 @@
             <updatePolicy>never</updatePolicy>
           </releases>
         </repository>
+        <repository>
+          <id>jboss.brew</id>
+          <name>JBoss Brew Repository</name>
+          <url>http://download-node-02.eng.bos.redhat.com/brewroot/repos/jb-common-build/latest/maven/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </repository>
+        <repository>
+          <id>fis.brew</id>
+          <name>FIS Brew Repository</name>
+          <url>http://download-node-02.eng.bos.redhat.com/brewroot/repos/jb-fis-2.0-maven-build/latest/maven/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
@@ -114,6 +138,30 @@
           <id>fusesource.ea</id>
           <name>FuseSource Community Early Access Release Repository</name>
           <url>https://repo.fusesource.com/nexus/content/groups/ea</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+        <pluginRepository>
+          <id>jboss.brew</id>
+          <name>JBoss Brew Repository</name>
+          <url>http://download-node-02.eng.bos.redhat.com/brewroot/repos/jb-common-build/latest/maven/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+        <pluginRepository>
+          <id>fis.brew</id>
+          <name>FIS Brew Repository</name>
+          <url>http://download-node-02.eng.bos.redhat.com/brewroot/repos/jb-fis-2.0-maven-build/latest/maven/</url>
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
