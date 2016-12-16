@@ -152,13 +152,6 @@
             </goals>
             <phase>install</phase>
           </execution>
-          <execution>
-            <id>karaf-archive</id>
-            <goals>
-              <goal>archive</goal>
-            </goals>
-            <phase>install</phase>
-          </execution>
         </executions>
         <configuration>
           <!-- we are using karaf 2.4.x -->
