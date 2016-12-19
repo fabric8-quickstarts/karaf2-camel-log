@@ -46,7 +46,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- fabric8 bom must be before fabric8 bom -->
       <dependency>
         <groupId>io.fabric8</groupId>
         <artifactId>fabric8-project-bom-fuse-karaf</artifactId>
