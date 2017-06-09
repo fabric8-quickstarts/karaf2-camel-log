@@ -184,6 +184,7 @@
           </execution>
         </executions>
         <configuration>
+          <javase>1.8</javase>
           <!-- we are using karaf 2.4.x -->
           <karafVersion>v24</karafVersion>
           <useReferenceUrls>true</useReferenceUrls>
