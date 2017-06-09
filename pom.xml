@@ -32,7 +32,7 @@
 
       <!-- configure the versions you want to use here -->
     <fuse.version>6.3.0.redhat-187</fuse.version>
-    <fabric8.version>2.2.183</fabric8.version>
+    <fabric8.version>2.2.211</fabric8.version>
     <karaf.plugin.version>4.0.7</karaf.plugin.version>
 
     <!-- maven plugin versions -->
