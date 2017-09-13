@@ -31,8 +31,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
       <!-- configure the versions you want to use here -->
-    <fabric8.version>2.3.2</fabric8.version>
-    <karaf.plugin.version>4.0.8</karaf.plugin.version>
+    <fabric8.version>2.3.0.fuse-000030</fabric8.version>
+    <karaf.plugin.version>4.2.0.fuse-000090</karaf.plugin.version>
 
     <!-- maven plugin versions -->
     <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
@@ -64,6 +64,13 @@
   </dependencyManagement>
 
   <dependencies>
+   
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>framework</artifactId>
+      <version>${karaf.plugin.version}</version>
+      <type>kar</type>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -185,13 +192,10 @@
         </executions>
         <configuration>
           <javase>1.8</javase>
-          <!-- we are using karaf 2.4.x -->
-          <karafVersion>v24</karafVersion>
           <useReferenceUrls>true</useReferenceUrls>
           <archiveTarGz>false</archiveTarGz>
           <includeBuildOutputDirectory>false</includeBuildOutputDirectory>
           <startupFeatures>
-            <feature>karaf-framework</feature>
             <feature>shell</feature>
             <feature>jaas</feature>
             <feature>aries-blueprint</feature>
