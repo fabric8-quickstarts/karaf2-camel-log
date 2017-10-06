@@ -41,13 +41,25 @@
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-    <fabric8.maven.plugin.version>3.2.8</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.5.31</fabric8.maven.plugin.version>
   </properties>
 
   <repositories>
       <repository>
         <id>org.jboss.fuse.bom</id>
         <url>https://maven.repository.redhat.com/ga/</url>
+      </repository>
+      <repository>
+        <id>redhat.ga</id>
+        <name>Red Hat General Availability Repository</name>
+        <url>https://maven.repository.redhat.com/ga</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
       </repository>
   </repositories>
 
