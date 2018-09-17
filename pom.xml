@@ -22,7 +22,7 @@
 
   <groupId>io.fabric8.quickstarts</groupId>
   <artifactId>karaf2-camel-log</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0.fuse-000083</version>
   <packaging>bundle</packaging>
   <name>Fabric8 :: Quickstarts :: Karaf 2 :: Camel Log</name>
   <description>Karaf 2 example running a Camel route</description>
@@ -31,8 +31,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- configure the versions you want to use here -->
-    <fabric8.version>2.2.170.fuse-000016</fabric8.version>
-    <karaf.plugin.version>4.0.7</karaf.plugin.version>
+    <fabric8.version>2.2.170.fuse-000097</fabric8.version>
+    <karaf.plugin.version>4.0.8.fuse-000040</karaf.plugin.version>
 
     <!-- maven plugin versions -->
     <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -40,7 +40,7 @@
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-    <fabric8.maven.plugin.version>3.1.80.fuse-000017</fabric8.maven.plugin.version>
+    <fabric8.maven.plugin.version>3.1.80.fuse-000092</fabric8.maven.plugin.version>
   </properties>
 
   <dependencyManagement>
